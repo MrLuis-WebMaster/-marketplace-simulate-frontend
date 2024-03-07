@@ -23,6 +23,10 @@ Install dependencies
   npm install
 ```
 
+Copy the .env.template file to create a new .env file and add the necessary environment variable values.
+
+Open the .env file and add the corresponding values.
+
 Start the server dev mode
 
 ```bash
@@ -36,6 +40,8 @@ Start the server dev mode
 - TailwindCSS
 - Redux Toolkit
 - Redux RTK
+- React Router Dom
+- Vercel (Deployment)
 
 ## API Documentation
 For detailed API documentation, refer to the OpenAPI documentation available at:
