@@ -2,10 +2,11 @@ import { Card } from 'flowbite-react'
 import { Product } from '../../types/produc.type'
 import Button from '../Button'
 import useAuth from '../../hooks/auth/useAuth'
+import { UserRole } from '../../types/user.type'
 
 
 const CardProduct = ({name, price, sku, quantity, user }:Product) => {
-    const {isAdmin} = useAuth()
+    const {isAdmin, auth} = useAuth()
     return (
         <Card
             imgAlt={name}
@@ -29,7 +30,7 @@ const CardProduct = ({name, price, sku, quantity, user }:Product) => {
             </div>
             <span className="text-lg font-bold text-gray-900 mb-2">${price}</span>
             {
-                !isAdmin && (
+                !isAdmin || auth.user?.role !== UserRole.SELLER && (
                     <Button variant='secondary'>
                         Add to cart
                     </Button>
