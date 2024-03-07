@@ -22,6 +22,7 @@ export interface ProductFormValues {
 }
 
 export interface ProductResponse extends ResponseServer {
+    [x: string]: any;
     data: {
         meta: PaginationResponseServer
         products: Product[]

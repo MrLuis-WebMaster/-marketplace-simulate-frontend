@@ -18,7 +18,7 @@ const ProductsDashboard: React.FC = () => {
     maxPrice: 10000000,
   });
 
-  const { data, isFetching, isLoading, isError } = useGetPublicProductsQuery({ ...filterParams });
+  const { data, isFetching, isLoading, isError } = useGetPublicProductsQuery({ ...filterParams, page: currentPage.toString() });
 
   const handleFilterChange = (newFilterParams: Partial<typeof filterParams>) => {
     setCurrentPage(1);

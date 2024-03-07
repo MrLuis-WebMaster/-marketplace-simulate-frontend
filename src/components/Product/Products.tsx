@@ -24,7 +24,7 @@ const Products = ({ products, isFetching, isLoading, isError}: ProductsProps) =>
               )
           }
           {
-              Boolean(products?.length) && (
+              Boolean(products?.length) && !isFetching  && (
                   <div className={gridClass}>
                       {products?.map((product) => (
                           <CardProduct key={product.id} {...product} />
