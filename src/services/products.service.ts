@@ -23,7 +23,7 @@ export const productApi = createApi({
         }),
         createProduct: builder.mutation<ProductResponseCreated, ProductFormValues>({
             query: (productFormValues) => ({
-                url: 'creat',
+                url: 'create',
                 method: 'POST',
                 body: productFormValues,
             }),
