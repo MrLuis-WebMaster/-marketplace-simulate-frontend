@@ -30,7 +30,7 @@ const CardProduct = ({name, price, sku, quantity, user }:Product) => {
             </div>
             <span className="text-lg font-bold text-gray-900 mb-2">${price}</span>
             {
-                !isAdmin || auth.user?.role !== UserRole.SELLER && (
+                !isAdmin && auth.user?.role !== UserRole.SELLER && (
                     <Button variant='secondary'>
                         Add to cart
                     </Button>
