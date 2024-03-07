@@ -3,7 +3,7 @@ import { Link, Outlet, useLocation } from 'react-router-dom';
 import 'boxicons';
 import LoginUser from './components/LoginUser';
 
-const SidebarLink = ({ to, children }:{ children: ReactNode, to: string }) => {
+const SidebarLink = ({ to, children }: { children: ReactNode, to: string }) => {
     const location = useLocation();
     const isActive = location.pathname === to;
 
@@ -38,9 +38,11 @@ const LayoutDashboard = () => {
     return (
         <div className="flex max-h-screen h-screen overflow-hidden">
             <aside
-                className={`w-90 bg-gray-800 flex-shrink-0 text-white p-4 
-            flex flex-col transition-all duration-500 ease-in 
-            fixed top-0 bottom-0 z-30 md:static ${isSidebarOpen ? '' : 'hidden'}`}
+                className={`
+                    w-90 bg-gray-800 flex-shrink-0 text-white p-4 
+                    flex flex-col transition-all duration-500 ease-in 
+                    fixed top-0 bottom-0 z-30 md:static ${isSidebarOpen ? '' : 'hidden'}`
+                }
             >
                 <div className="flex items-center mb-8">
                     <div className='flex items-center justify-between w-full'>
@@ -50,7 +52,7 @@ const LayoutDashboard = () => {
                             </span>
                         </Link>
                         <button onClick={toggleSidebar} className='md:hidden'>
-                            <i className='bx bx-x'></i>
+                            <i className='bx bx-x text-2xl md:text-xl'></i>
                         </button>
                     </div>
                 </div>
@@ -72,13 +74,13 @@ const LayoutDashboard = () => {
             <div className="flex-grow overflow-y-auto">
                 <header className="flex items-center justify-between bg-white border-b w-full p-5 sticky top-0 z-20">
                     <button
-                        className="text-black focus:outline-none text-2xl"
+                        className="text-black focus:outline-none text-3xl"
                         onClick={toggleSidebar}
                     >
                         <i className="bx bx-menu"></i>
                     </button>
                     <Link to="/products" className="text-md flex items-center gap-2">
-                        <i className="bx bx-store-alt"></i>
+                        <i className="bx bx-store-alt h-8 w-8 text-2xl  md:text-lg md:h-5 md:w-5"></i>
                         <span className='hidden md:block'>
                             Back to marketplace
                         </span>
