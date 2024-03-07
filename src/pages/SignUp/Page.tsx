@@ -3,8 +3,8 @@ import { Link, Outlet, useLocation } from "react-router-dom";
 const SignUp = () => {
     const location = useLocation();
     return (
-        <section className="bg-gray-50 min-h-screen flex items-center justify-center">
-            <div className="w-full max-w-[70%] bg-white rounded-lg shadow p-8 gap-8 flex flex-col lg:flex-row min-h-[430px] flex-wrap">
+        <section className="bg-gray-50 min-h-screen flex items-center justify-center px-6 py-8 mx-auto">
+            <div className="w-full lg:max-w-[70%] bg-white rounded-lg shadow p-8 gap-8 flex flex-col lg:flex-row min-h-[430px] flex-wrap">
                 <div className="flex-grow lg:max-w-[50%]">
                     <h2 className="text-2xl font-bold">Sign Up</h2>
                     <p className="mb-4">Choose your role:</p>
@@ -36,7 +36,6 @@ const SignUp = () => {
                 </div>
                 <Link to="/" className="text-center block w-full">Back to home</Link>
             </div>
-            
         </section>
     );
 }
