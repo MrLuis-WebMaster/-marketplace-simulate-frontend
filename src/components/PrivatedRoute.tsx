@@ -3,8 +3,9 @@ import { Navigate } from 'react-router-dom'
 import { logout } from '../redux/slices/auth.slice'
 import { useSelector } from 'react-redux'
 import { RootState } from '../redux/store'
+import { UserRole } from '../types/user.type'
 
-const PrivateRoute = ({ children }: {children: ReactNode}) => {
+const PrivateRoute = ({ children, roles }: {children: ReactNode, roles: UserRole[]}) => {
     const user = useSelector((state: RootState) => state.auth.user)
     useEffect(() => {
         const token = user?.token
@@ -19,6 +20,10 @@ const PrivateRoute = ({ children }: {children: ReactNode}) => {
 
     if (!user) {
         return <Navigate to={'/login'} />
+    }
+
+    if(user && !roles.includes(user.role)) {
+        return <Navigate to={'/access-denied'} />
     }
 
     return children

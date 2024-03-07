@@ -12,6 +12,8 @@ import Dashboard from "./pages/Dashboard/Page";
 import CreateProduct from "./pages/Dashboard/CreateProduct/Page";
 import ProductsDashboard from "./pages/Dashboard/Products/Page";
 import LayoutDashboard from "./layout/LayoutDashboard";
+import { UserRole } from "./types/user.type";
+import AccessDenied from "./pages/AccessDenied";
 
 const router = createBrowserRouter(
     [
@@ -50,7 +52,7 @@ const router = createBrowserRouter(
         },
         {
             path: "/dashboard",
-            element: <PrivateRoute><LayoutDashboard /></PrivateRoute>,
+            element: <PrivateRoute roles={[UserRole.ADMIN, UserRole.SELLER]}><LayoutDashboard /></PrivateRoute>,
             errorElement: <NotFound />,
             children: [
                 {
@@ -67,6 +69,10 @@ const router = createBrowserRouter(
                 }
             ]
         },
+        {
+            path: '/access-denied',
+            element: <AccessDenied/>,
+        }
     ]
 );
 
